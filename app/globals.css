@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gray-900 text-white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-purple-800 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-purple-700;
+}
+
+/* Ultra-safe v0 popup blocking - CSS only approach */
+[data-v0-popup],
+[data-v0-overlay],
+.v0-popup,
+.v0-overlay,
+iframe[src*="v0.dev"],
+iframe[src*="vercel.app/v0"],
+div[class*="v0-"]:not([class*="v0-portfolio"]):not([class*="v0-website"]):not([class*="v0-project"]),
+div[id*="v0-"]:not([id*="v0-portfolio"]):not([id*="v0-website"]):not([id*="v0-project"]),
+[class*="vercel-live-feedback"],
+button[class*="feedback"]:not(.contact-feedback):not(.user-feedback),
+div[class*="feedback-widget"],
+div[class*="live-feedback"],
+[data-radix-popper-content-wrapper*="v0"],
+[data-state="open"][class*="v0"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  width: 0 !important;
+  height: 0 !important;
+  z-index: -9999 !important;
+  transform: scale(0) !important;
+  overflow: hidden !important;
+}
+
+/* Prevent any v0 overlays from appearing */
+body::before,
+body::after {
+  content: none !important;
+}
+
+/* Block v0 iframes and popups completely */
+iframe[src*="v0.dev"],
+iframe[src*="vercel.app/v0"],
+iframe[src*="v0-popup"] {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+}
+
+/* Additional safety for any v0 modals or overlays */
+[role="dialog"][class*="v0"],
+[role="alertdialog"][class*="v0"],
+[data-dialog][class*="v0"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
